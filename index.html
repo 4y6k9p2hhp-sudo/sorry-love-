@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Note for Samayra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #fdf8f5;
+      font-family: 'Nunito', sans-serif;
+      color: #4a4443;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Soft background decorative circles */
+    .bg-circle {
+      position: fixed;
+      border-radius: 50%;
+      background: rgba(244, 219, 216, 0.4);
+      z-index: 0;
+      filter: blur(40px);
+    }
+    .circle-1 { top: -50px; left: -50px; width: 200px; height: 200px; }
+    .circle-2 { bottom: -50px; right: -50px; width: 250px; height: 250px; }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 32px 24px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f2e3e1;
+      text-align: center;
+      transition: all 0.5s ease-in-out;
+    }
+
+    /* Welcome Screen */
+    .welcome-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .subtitle {
+      font-family: 'Alex Brush', cursive;
+      font-size: 2.8rem;
+      color: #b86b77;
+      margin-bottom: 8px;
+    }
+
+    .prompt-text {
+      font-size: 1rem;
+      color: #7d7270;
+      line-height: 1.5;
+    }
+
+    .open-btn {
+      margin-top: 12px;
+      background-color: #b86b77;
+      color: #ffffff;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(184, 107, 119, 0.25);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .open-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* Letter Screen */
+    .letter-card {
+      display: none;
+      opacity: 0;
+      text-align: left;
+    }
+
+    .letter-title {
+      font-family: 'Alex Brush', cursive;
+      font-size: 2.5rem;
+      color: #b86b77;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .letter-body {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: #58504f;
+    }
+
+    .letter-body p {
+      margin-bottom: 16px;
+    }
+
+    .highlight {
+      color: #b86b77;
+      font-weight: 600;
+    }
+
+    .signature {
+      margin-top: 24px;
+      font-weight: 600;
+      color: #4a4443;
+    }
+
+    /* Simple Fade-in animation */
+    .fade-in {
+      animation: fadeIn 0.8s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-circle circle-1"></div>
+  <div class="bg-circle circle-2"></div>
+
+  <div class="container">
+    
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="card welcome-card">
+      <div class="subtitle">A Note for You</div>
+      <p class="prompt-text">Samayra, please take a quiet moment to read this.</p>
+      <button class="open-btn" onclick="openLetter()">Tap to Open</button>
+    </div>
+
+    <!-- Letter Screen -->
+    <div id="letterScreen" class="card letter-card">
+      <div class="letter-title">Dearest Samayra,</div>
+      <div class="letter-body">
+        <p>I am writing this because I want to say I am truly, deeply sorry. I know I have been behaving very rudely to you recently for no reason at all, and it breaks my heart knowing that I was unkind to you.</p>
+        
+        <p><span class="highlight">You deserve nothing but care, gentleness, and pure love from me</span>, yet I failed to give you that. There is no excuse for my behavior or attitude. You mean the absolute world to me, and making you feel hurt or disrespected is the last thing I ever want to do. I take full responsibility for how I’ve been acting, and I am sincerely sorry for hurting your feelings.</p>
+        
+        <p>Thank you for being in my life and for your patience with me. I promise to do better, be more mindful, and treat you with all the warmth, care, and love you deserve every single day.</p>
+        
+        <p class="signature">With all my love,<br>[Your Name]</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function openLetter() {
+      const welcome = document.getElementById('welcomeScreen');
+      const letter = document.getElementById('letterScreen');
+
+      welcome.style.display = 'none';
+      letter.style.display = 'block';
+      letter.classList.add('fade-in');
+    }
+  </script>
+
+</body>
+</html>
